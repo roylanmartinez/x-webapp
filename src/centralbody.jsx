@@ -170,7 +170,7 @@ class CentralBody extends Component {
 
     return (
      
-      <BrowserRouter basename="/main">
+      <BrowserRouter>
         {/* The basename is /main because github puts an the repository name after the url  
          It redirects to a particular component. It can go that component with properties  */}
         <div className="PARENT">
