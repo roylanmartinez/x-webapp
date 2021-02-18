@@ -1,0 +1,1439 @@
+@media only screen and (min-width: 978.1px) {
+  .displayNone,
+  .uploadReviewReturn {
+    display: none;
+  }
+  body {
+    background-color: rgb(38, 40, 43);
+  }
+  .PARENT {
+    background-color: rgb(38, 40, 43);
+    height: 100vh;
+    /* position: relative; */
+    /* overflow: hidden; */
+    /* overscroll-behavior: contain; */
+  }
+  .searcher {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    margin-top: 5px;
+    /* background-color: rgb(7, 223, 140); */
+    width: 350px;
+    background-color: rgb(23, 21, 29);
+  }
+
+  .navbarWrapper {
+    z-index: 5;
+    background-color: rgb(23, 21, 29);
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    height: 50px;
+  }
+  i.navbarIcon {
+    font-size: 20px;
+    vertical-align: middle;
+    color: rgb(179, 179, 179);
+  }
+  i.navbarIcon.lightedR {
+    color: white;
+  }
+  .nameButton {
+    color: rgb(179, 179, 179);
+    margin-left: 10px;
+  }
+  .nameButton.lightedR {
+    color: white;
+  }
+  .navbar-button {
+    background-color: rgb(23, 21, 29);
+    flex-grow: 1;
+    text-align: center;
+    border: none;
+    vertical-align: middle;
+  }
+  .searcherSmall {
+    display: none;
+  }
+  .searcherContainer {
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    height: 550px;
+    background-color: rgb(23, 21, 29);
+    /* background-color: rgb(0, 121, 241); */
+    /* flex-grow: 2; */
+    text-align: center;
+    /* width: 700px; */
+  }
+  .preResultSearch {
+    margin-left: 20px;
+    background-color: rgb(23, 21, 29);
+    height: 100%;
+    width: 300px;
+  }
+  .inputSearch {
+    margin-left: 10px;
+    width: 250px;
+    outline: none;
+    border: none;
+    height: 30px;
+    background-color: rgb(23, 21, 29);
+    color: white;
+  }
+
+  .searcherContainer.onScreen {
+    align-content: center;
+    animation-name: slideUp;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes slideUp {
+    0% {
+      /* transform: translateY(0px); */
+      transform: translateY(0px);
+    }
+    100% {
+      /* transform: translateY(-500px); */
+      transform: translateY(-300px);
+    }
+  }
+
+  .searcherContainer.hidden {
+    animation-name: slideDown;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-300px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .navbar-button.lightedR {
+    background-color: rgb(10, 1, 19);
+    border-top: 1px solid rgb(179, 179, 179);
+    border-radius: 20px 20px 0px 0px;
+    transition: border-radius 0.2s linear 0s;
+  }
+
+  .navbar-button:focus {
+    outline: none;
+  }
+  .navbar-button:hover {
+    background-color: rgb(10, 1, 19);
+    /* border-radius: 10px 10px 0px 0px; */
+  }
+
+  .hrSearch {
+    border: 1px solid rgb(179, 179, 179);
+    width: 300px;
+    margin: 3px 0px 0px 0px;
+    height: 1px;
+    align-self: center;
+  }
+
+  /* INSIDE FEEDNEWS STYLE */
+  .feedNews {
+    /* align-self: center; */
+    background-color: rgb(27, 25, 32);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .leftFeedNews {
+    background-color: rgb(17, 102, 28);
+    height: 100vh;
+    width: 220px;
+    align-self: center;
+  }
+  .centralFeedNews {
+    background-color: darkred;
+    height: 100vh;
+    width: 560px;
+    align-self: center;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .rightFeedNews {
+    background-color: rgb(28, 16, 129);
+    height: 100vh;
+    width: 300px;
+    align-self: center;
+  }
+
+  /* SQUARE HOLDER */
+  .square {
+    outline: none;
+    /* opacity: 0; */
+    z-index: 3;
+    position: fixed;
+    bottom: 0px;
+    left: -350px;
+    width: 350px;
+    height: 550px;
+    /* margin-left: 0px; */
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+    background-color: rgb(23, 21, 29);
+  }
+  .square.onScreen {
+    animation-name: slideRight;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes slideRight {
+    0% {
+      transform: translateX(0px);
+      /* transform: rotateX(-10deg); */
+    }
+    50% {
+      /* transform: rotateX(0deg); */
+      transform: translateX(350px);
+    }
+    100% {
+      /* transform: rotateX(0deg); */
+      transform: translateX(370px);
+    }
+  }
+  .square.hidden {
+    display: block;
+    animation-name: slideLeft;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(370px);
+    }
+    /* 50% {
+      transform: translateX(100px);
+    } */
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  .notifications,
+  .messages,
+  .map {
+    z-index: 1;
+    left: 0px;
+    /* left: 40vw; */
+    position: absolute;
+    height: 550px;
+    width: 350px;
+    background-color: rgba(23, 21, 29);
+  }
+
+  /* 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  */
+  /* INSIDE PROFILE STYLE */
+  /* --- PROFILE NOT LAYER --- */
+  /* main colors of the structure */
+  /* 
+  color div: rgb(23, 21, 29)
+  color text div profile: rgb(179, 179, 179)
+  color text posts (read necessity): rgb(240, 240, 240);
+  */
+
+  label.buttonProfile,
+  button.buttonProfile {
+    border: none;
+    outline: none;
+    background: none;
+  }
+  label.buttonProfile:hover,
+  button.buttonProfile:hover {
+    background-color: rgb(18, 18, 19);
+    cursor: pointer;
+  }
+  .textButtonProfile {
+    font-weight: 400;
+    margin-top: 12px;
+    /* width: 400px; */
+    /* background-color: tomato; */
+    color: rgb(179, 179, 179);
+  }
+  .divProfile {
+    background-color: rgb(23, 21, 29);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 1px rgb(17, 17, 19);
+  }
+
+  .profile {
+    /* user-select: none; */
+    /* align-self: center; */
+    background-color: rgb(27, 25, 32);
+    /* background-color: rgb(212, 9, 9); */
+    /* height: auto; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .leftProfile {
+    /* background-color: rgb(33, 33, 43); */
+    height: 100vh;
+    width: 340px;
+    /* align-self: center; */
+    margin-right: 20px;
+  }
+
+  .rightProfile {
+    /* background-color: rgb(25, 194, 19); */
+    /* height: 1500px; */
+    /* height: min-content; */
+    /* width: 700px; */
+    /* align-self: center; */
+    display: flex;
+    /* justify-content: center; */
+    /* height: 700px; */
+    flex-direction: column;
+    /* justify-content: space-around; */
+  }
+
+  .rightProfile0 {
+    align-self: center;
+    position: relative;
+    margin-top: 120px;
+    padding-bottom: 15px;
+    width: 700px;
+
+    /* background-color: rgb(46, 43, 61); */
+  }
+
+  .profileImageContainerContainer {
+    position: absolute;
+    top: -100px;
+    right: 100px;
+    height: 200px;
+    width: 200px;
+  }
+  .profileImageContainer {
+    outline: none;
+    border: none;
+    padding: 0px;
+    margin: 0;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgb(46, 43, 61);
+  }
+  .profileImageContainer:focus {
+    outline: none;
+  }
+  .profileImage {
+    width: 100%;
+    border-radius: 50%;
+    border: 6px solid rgb(23, 21, 29);
+    /* box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75); */
+  }
+  .profileImage:active {
+    pointer-events: none;
+    border: 8px solid rgb(23, 21, 29);
+  }
+  .fa-camera-profilePhoto {
+    position: absolute;
+    padding: 10px;
+    background-color: rgba(253, 253, 253, 0.342);
+    left: 0px;
+    bottom: 20px;
+    font-size: 25px;
+    border-radius: 50%;
+    color: rgb(33, 32, 36);
+    cursor: pointer;
+  }
+  .fa-camera-profilePhoto:hover {
+    background-color: rgba(255, 255, 255, 0.904);
+  }
+  .profileType {
+    margin: 30px;
+    color: rgb(179, 179, 179);
+  }
+  .profileName {
+    /* background-color: black; */
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 120px;
+    color: rgb(179, 179, 179);
+  }
+  .profileUserName {
+    color: rgb(179, 179, 179);
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .buttonRightProfile0 {
+    margin-top: 40px;
+    position: absolute;
+    right: 80px;
+  }
+  .buttonRightRightProfile0 {
+    margin-top: 40px;
+    position: absolute;
+    right: 30px;
+    /* font-size: 30px; */
+  }
+  .profileBiography {
+    color: rgb(179, 179, 179);
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  .containerFollowers {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    /* background-color: rgb(247, 10, 30); */
+    justify-content: space-between;
+  }
+  .followersText {
+    margin-left: 30px;
+    margin-right: 30px;
+    color: rgb(179, 179, 179);
+    /* background-color: chartreuse; */
+  }
+  .followersProfile {
+    cursor: pointer;
+  }
+  .rightProfile1 {
+    align-self: center;
+    /* position: relative; */
+    margin-top: 20px;
+    height: 150px;
+    width: 700px;
+    /* box-shadow: 0px 0px 26px 0px rgba(55, 62, 90, 0.4); */
+
+    /* background-color: rgb(46, 43, 61); */
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    /* align-content: center; */
+  }
+  .fa-arrow-circle-up-RP1 {
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    color: rgb(179, 179, 179);
+    margin-right: 5px;
+    align-self: flex-end;
+  }
+  .wrapperAdd {
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    /* background-color: rgb(46, 43, 61); */
+    width: 100%;
+    height: 30px;
+    /* margin-bottom: 0px; */
+    margin: 30px 0 0 0;
+  }
+
+  .inputSearch.profile {
+    margin-left: 2px;
+    width: 400px;
+    outline: none;
+    border: none;
+    height: 30px;
+    background-color: rgb(23, 21, 29);
+    color: white;
+    font-size: 20px;
+  }
+  .inputSearch.profile::placeholder {
+    text-align: center;
+  }
+  .hrUpload {
+    align-self: center;
+    border-top: 2px solid rgb(179, 179, 179);
+    height: 2px;
+    margin-top: 5px;
+    width: 600px;
+  }
+  .buttonUploadWrapper {
+    margin-top: 20px;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .buttonUpload {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    /* vertical-align: middle; */
+    /* margin-left: -5px; */
+    /* margin-right: -5px; */
+    /* width: 170px; */
+    height: 50px;
+    /* background-color: rgb(228, 11, 37); */
+    border-radius: 5px;
+    color: rgb(156, 143, 146);
+  }
+
+  .fa-camera-buttonUpload {
+    color: rgb(98, 138, 248);
+    /* margin-top: 5px; */
+    margin-right: 8px;
+  }
+  .fa-map-marker-alt-buttonUpload {
+    color: rgb(129, 255, 135);
+    margin-right: 8px;
+  }
+  .fa-star-buttonUpload {
+    color: rgb(248, 246, 126);
+    margin-right: 8px;
+  }
+  .fa-plus-circle-buttonUpload {
+    color: rgb(227, 215, 253);
+    margin-right: 8px;
+  }
+  .rightProfile2 {
+    align-self: center;
+    /* position: relative; */
+    margin-top: 20px;
+    height: auto;
+    width: 700px;
+    /* box-shadow: 0px 0px 26px 0px rgba(55, 62, 90, 0.4); */
+
+    /* background-color: rgb(46, 43, 61); */
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    /* align-content: center; */
+  }
+
+  .wrapperButtonRP2 {
+    margin: 20px 0px 20px 30px;
+    display: flex;
+    justify-content: center;
+    /* vertical-align: middle; */
+    /* margin-left: -5px; */
+    /* margin-right: -5px; */
+    width: 640px;
+    height: 50px;
+    /* background-color: rgb(255, 44, 44); */
+    border-radius: 5px;
+  }
+  .buttonRP2 {
+    flex-grow: 1;
+    /* display: flex; */
+    width: 213.33;
+    height: auto;
+    text-align: center;
+    /* margin-left: 10px; */
+    /* border-radius: 5px; */
+    cursor: pointer;
+  }
+  .textRP2 {
+    padding-bottom: 5px;
+    font-weight: 300;
+  }
+  .textRP2.activeRP2 {
+    border-bottom: 2px solid rgb(179, 179, 179);
+    /* color: #5a2dff; */
+    /* padding-bottom: 20px; */
+  }
+  .rightProfile3 {
+    padding-top: 20px;
+    align-self: center;
+    margin-top: 20px;
+    height: auto;
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  div.photoRP3 {
+    overflow: hidden;
+    position: relative;
+    margin: 0px 0px 25px 25px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  img.photoRP3Blur {
+    position: absolute;
+    filter: brightness(0.6) blur(10px);
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  video.photoRP3Blur {
+    position: absolute;
+    /* filter: brightness(0.6) blur(10px); */
+    height: 100%;
+    width: 100%;
+    /* max-height: 300px; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+  }
+  img.photoRP3 {
+    position: absolute;
+    /* filter: brightness(0.); */
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .photoRP3Info {
+    user-select: none;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+  .photoRP3Info:hover {
+    box-shadow: inset 0px 0px 16px 4px rgb(0, 0, 0);
+    opacity: 0.5;
+  }
+  .photoRP3Info-place {
+    text-align: center;
+    color: white;
+  }
+  .photoRP3Info-points {
+    text-align: center;
+    color: white;
+  }
+
+  .photoRP3Info-date {
+    text-align: center;
+    color: white;
+  }
+  .photoRP3Info-click {
+    text-align: center;
+    color: white;
+    /* margin-left: 10px; */
+  }
+  .historyDiv-RP3 {
+    padding-top: 15px;
+    padding-bottom: 6px;
+    border: 1px solid rgb(72, 67, 87);
+    margin-bottom: 10px;
+    height: auto;
+    width: 640px;
+    background-image: linear-gradient(
+      to right,
+      rgb(57, 52, 78),
+      rgb(41, 39, 53)
+    );
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    color: rgb(179, 179, 179);
+    cursor: pointer;
+  }
+  .historyDiv-RP3:hover {
+    background-image: linear-gradient(
+      to right,
+      rgb(41, 39, 53),
+      rgb(57, 52, 78)
+    );
+  }
+  .historyDiv-RP3-text {
+    /* overflow: hidden; */
+    width: 400px;
+  }
+  .historyDiv-RP3-points {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid;
+    text-align: center;
+    padding-top: 4px;
+  }
+  .historyDiv-RP3-icon {
+    font-size: 50px;
+    height: 50px;
+  }
+
+  /* LAYER ------------------------------------------------------------- LAYER */
+
+  .backgroundLayer {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    z-index: 6;
+    /* animation-name: opacityChange; */
+    display: flex;
+    justify-content: center;
+  }
+  .layer-editPhoto {
+    /* z-index: 10; */
+    display: flex;
+    z-index: -1;
+    position: absolute;
+    /* overflow: hidden; */
+    margin-top: 130px;
+    margin-left: 80px;
+    /* margin-top: 120px; */
+    background-color: rgb(23, 21, 29);
+    /* background-color: rgb(253, 0, 0); */
+    width: 390px;
+    height: 132px;
+    text-align: center;
+    border-radius: 10px;
+    user-select: none;
+    flex-direction: column;
+    border: 1px solid rgb(37, 35, 46);
+    box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.75);
+  }
+  .layer-editPhoto:focus {
+    outline: none;
+  }
+  .layer-editPhotoText0:focus,
+  .layer-editPhotoText1:focus,
+  .layer-editPhotoText2:focus {
+    outline: none;
+  }
+  .layer-editPhoto.onScreen {
+    /* background-color: rgb(6, 255, 60); */
+    z-index: 1;
+    display: flex;
+    /* width: 400px; */
+  }
+  .layer-editPhotoText0 {
+    margin-top: 5px;
+    /* padding-bottom: -10px; */
+    border: none;
+    background: none;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    color: rgb(179, 179, 179);
+    position: relative;
+    width: 380px;
+    align-self: center;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+  }
+  .layer-editPhoto0-arrow {
+    z-index: -1;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(23, 21, 29);
+    transform: rotate(45deg);
+    top: 10px;
+    right: -15px;
+    border-top: 1px solid rgb(37, 35, 46);
+    border-right: 1px solid rgb(37, 35, 46);
+  }
+  .layer-editPhotoText1 {
+    /* padding-bottom: -10px; */
+    border: none;
+    background: none;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    color: rgb(179, 179, 179);
+    position: relative;
+    cursor: pointer;
+    width: 380px;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+  }
+  #file-profileImage {
+    display: none;
+  }
+  .layer-editPhotoText2 {
+    /* padding-bottom: -10px; */
+    border: none;
+    background: none;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    color: rgb(179, 179, 179);
+    position: relative;
+    width: 380px;
+    align-self: center;
+  }
+  .layer-editPhotoText0:hover,
+  .layer-editPhotoText1:hover,
+  .layer-editPhotoText2:hover {
+    background-color: rgb(56, 54, 65);
+    /* padding-right: 10px; */
+  }
+
+  .layer-profileBackground-ViewPhoto {
+    z-index: 6;
+    background-color: rgb(23, 21, 29, 0.95);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    /* animation-name: fadeIn;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards; */
+  }
+
+  .profileImageContainerBig {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    margin-top: 10vh;
+  }
+  .profileImageBig {
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid rgba(51, 47, 63);
+    /* transform: translate(270px, -30px); */
+    /* transform: translateY(-30px); */
+  }
+  .closeLayerViewPhoto {
+    font-size: 30px;
+    color: rgb(124, 124, 124);
+    position: fixed;
+    right: 20px;
+    bottom: 60px;
+  }
+  .closeLayerViewPhoto:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .layer-profileBackground-EditProfile {
+    /* z-index: 6; */
+
+    background-color: rgb(23, 21, 29);
+
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* animation-name: fadeIn; */
+    /* animation-duration: 0.3s; */
+    /* animation-fill-mode: forwards; */
+  }
+  .editProfileContainer {
+    display: flex;
+    /* animation-name: fadeIn; */
+    /* animation-duration: 1s; */
+    /* animation-fill-mode: forwards; */
+  }
+  @keyframes fadeIn {
+    0% {
+      /* opacity: 0; */
+      transform: scale(1.2);
+    }
+    /* 50% {
+      transform: translateX(100px);
+    } */
+    100% {
+      /* opacity: 1; */
+      transform: scale(1);
+    }
+  }
+  .editProfileLeftHeaders {
+    background-color: rgb(23, 21, 29);
+    display: flex;
+    flex-direction: column;
+    /* order: 0; */
+  }
+  .buttonEditProfileLeft,
+  .buttonEditProfileLeft:focus {
+    width: 150px;
+    font-weight: 300;
+    color: rgb(179, 179, 179);
+    border: none;
+    outline: none;
+    padding: 15px;
+    background-color: rgb(23, 21, 29);
+    text-align: left;
+  }
+  .buttonEditProfileLeft.on {
+    /* outline: none; */
+    border-left: 1px solid rgb(179, 179, 179);
+  }
+  .editProfileInner {
+    /* margin-top: 10vh; */
+    /* height: 400px; */
+    width: 600px;
+    /* background-color: rgb(46, 43, 61); */
+    /* overflow-y: scroll; */
+    order: 1;
+  }
+  .editProfileHeader {
+    margin-top: 20px;
+    /* text-align: center; */
+    /* background-color: rgb(67, 64, 83); */
+    /* height: 10px; */
+    width: 600px;
+    /* border-radius: 0px 5px 5px 0px; */
+    display: flex;
+    margin-bottom: -10px;
+  }
+
+  .editProfileHeaderImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* margin-left: 60px;/ */
+    cursor: pointer;
+  }
+  .editProfileHeaderText {
+    color: rgb(179, 179, 179);
+    font-weight: 300;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .editProfileHeaderTextSmall {
+    margin-left: 120px;
+    color: rgb(74, 123, 168);
+    cursor: pointer;
+  }
+  .editProfileInnerSection {
+    display: flex;
+    /* background-color: chartreuse; */
+    /* justify-content: space-between; */
+    width: 500px;
+    margin-left: 60px;
+    margin-top: 10px;
+    /* flex-wrap: wrap; */
+  }
+  .textInputEditProfile {
+    width: 100px;
+    /* background-color: darkgreen; */
+    font-size: 16px;
+    color: rgb(179, 179, 179);
+  }
+
+  .inputEditProfile {
+    margin-left: 10px;
+    height: 30px;
+    width: 400px;
+    background-color: rgb(30, 27, 39);
+    border: none;
+    font-size: 16px;
+    color: rgb(179, 179, 179);
+  }
+  .inputEditProfileTextArea {
+    margin-left: 10px;
+    height: 90px;
+    width: 400px;
+    background-color: rgb(30, 27, 39);
+    border: none;
+    font-size: 16px;
+    color: rgb(179, 179, 179);
+  }
+  .inputEditProfile:focus,
+  .inputEditProfileTextArea:focus {
+    /* outline: none; */
+    outline: 1px solid rgb(179, 179, 179);
+  }
+  .inputEditProfileSmallAdditional {
+    width: 400px;
+    margin-left: 109px;
+    color: rgb(109, 103, 139);
+  }
+  .inputRadioEditProfile {
+    margin-top: 5px;
+  }
+  .inputEditProfileSmallFontRadio {
+    color: rgb(109, 103, 139);
+    margin-left: 10px;
+    /* background-color: darkmagenta; */
+    width: 400px;
+  }
+  .textEditProfileSmallTitle {
+    color: rgb(109, 103, 139);
+  }
+  .buttonSaveEditProfile {
+    width: 200px;
+    margin-top: 50px;
+    margin-left: 350px;
+    color: rgb(179, 179, 179);
+  }
+  .closeLayerEditProfile {
+    color: rgb(124, 124, 124);
+    position: absolute;
+    font-size: 30px;
+    right: 40px;
+    bottom: 50px;
+  }
+  .closeLayerEditProfile:hover {
+    color: rgb(124, 124, 124);
+    position: absolute;
+    font-size: 30px;
+    /* right: 20px;
+    bottom: 65px; */
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .layer-profileBackground {
+    z-index: 6;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(23, 21, 29, 0.95);
+    display: flex;
+    justify-content: center;
+    animation-name: fadeIn;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    padding-left: 360px;
+    /* justify-content: flex-end; */
+  }
+  .containerProfileFollowers {
+    margin-top: 0px;
+    /* width: 100px; */
+    height: calc(100vh - 55px);
+    /* align-self: flex-end; */
+    background-color: rgb(23, 21, 29);
+    /* margin-right: 150px; */
+  }
+  .containerProfileFollowersHead {
+    display: flex;
+  }
+  .buttonLayerFollowing,
+  .buttonLayerFollowing:active {
+    width: 300px;
+    font-weight: 300;
+    color: rgb(96, 92, 104);
+    border: none;
+    outline: none;
+    padding: 15px;
+    background-color: rgb(38, 34, 48);
+    text-align: center;
+  }
+  .buttonLayerFollowing.on {
+    background-color: rgb(23, 21, 29);
+    outline: none;
+    border-top: 2px solid rgb(179, 179, 179);
+    color: rgb(179, 179, 179);
+  }
+
+  .profileContainerListFollowers-section {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(23, 21, 29);
+    justify-content: space-evenly;
+  }
+  .profileContainerListFollowers-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* margin-left: 10px; */
+  }
+  .profileContainerListFollowers-text {
+    /* background-color: violet; */
+    /* margin-top: 5px; */
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: rgb(179, 179, 179);
+    /* margin-left: 10px; */
+  }
+  .btn-dark-EditProfileLayer {
+    color: rgb(179, 179, 179);
+  }
+  .btn-info-EditProfileLayer {
+    border: none;
+    background-color: rgb(41, 86, 136);
+    color: rgb(179, 179, 179);
+  }
+  .profileContainerListFollowers-button,
+  .profileContainerListFollowers-button:focus {
+    /* margin-left: 50px; */
+    width: 100px;
+    align-self: flex-start;
+    /* color: rgb(179, 179, 179); */
+    box-shadow: none;
+  }
+  .profileContainerListFollowers {
+    padding-top: 10px;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    /* background-color: turquoise; */
+  }
+  .profileContainerListFollowers::-webkit-scrollbar {
+    width: 5px;
+    /* background-color: teal; */
+  }
+
+  .profileContainerListFollowers::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(80, 80, 80);
+  }
+  .uploadReviewContainer {
+    width: 600px;
+    height: 100%;
+    background-color: rgb(23, 21, 29);
+    /* background-color: rgb(73, 62, 62); */
+  }
+  .uploadReviewContainerTitle {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(179, 179, 179);
+  }
+
+  .uploadReviewContainerTextArea {
+    /* margin-left: 10px; */
+    /* margin-top: 10px; */
+    padding-left: 10px;
+    margin-top: 10px;
+    height: 200px;
+    width: 500px;
+    background-color: rgba(30, 27, 39, 0.5);
+    border: none;
+    outline: none;
+    font-size: 24px;
+    color: rgb(179, 179, 179);
+  }
+
+  .uploadReviewContainerTextArea:focus {
+    /* outline: none; */
+    outline: none;
+    background-color: rgba(30, 27, 39);
+  }
+  .uploadReviewMiddle {
+    height: auto;
+    /* width: 100px; */
+    /* background-color: brown; */
+    display: flex;
+    /* margin-top: 0px; */
+    margin-left: 50px;
+  }
+  .uploadReviewMiddlePunctuationC {
+    width: auto;
+    height: 20px;
+    /* background-color: blue; */
+    display: flex;
+    cursor: pointer;
+  }
+  .UploadReviewSquares {
+    width: 22px;
+    height: 22px;
+    background-color: rgb(30, 27, 39);
+    margin-right: 0px;
+    /* border-radius: 20% 0% 20% 0%; */
+
+    /* border: 2px solid rgb(30, 27, 39); */
+  }
+
+  .UploadReviewSquares.on {
+    border-radius: 20%;
+    background-color: rgb(117, 117, 117);
+    border: 2px solid rgb(30, 27, 39);
+  }
+  .uploadReviewMiddlePuntuation {
+    margin-left: 20px;
+    color: rgba(179, 179, 179, 0.521);
+    font-weight: 300;
+  }
+  .uploadReviewImagesContainer {
+    margin-left: 50px;
+    height: 110px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-arrow-color: aqua;
+    padding-bottom: 10px;
+  }
+  .imagesUploadedReviewContainer {
+    position: relative;
+    height: 90px;
+    width: 90px;
+    margin-right: 10px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .imagesUploadedReview {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .BigPostBackground {
+    z-index: 6;
+    background-color: rgb(23, 21, 29, 0.95);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: left;
+    /* animation-name: fadeIn;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards; */
+  }
+  .leftBigPost {
+    background-color: black;
+    width: calc(100% - 500px);
+    height: 100vh;
+    border-radius: 0px 20px 20px 0px;
+  }
+
+  div.photoBigPost {
+    overflow: hidden;
+    position: relative;
+    /* margin: 0px 0px 0px 0px; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0px 20px 20px 0px;
+  }
+  img.photoBigPostBlur {
+    position: absolute;
+    filter: brightness(0.3) blur(15px);
+    height: 110%;
+    width: 110%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  video.videoBigPostBlur {
+    position: absolute;
+    /* filter: brightness(0.6) blur(10px); */
+    height: 100%;
+    width: 100%;
+    /* max-height: 300px; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+  }
+  img.photoBigPost {
+    position: absolute;
+    /* filter: brightness(0.); */
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  .photoBigPostInfo {
+    /* user-select: none; */
+    opacity: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(99, 49, 112, 0.151);
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+    cursor: pointer;
+  }
+  .photoBigPostInfo:hover {
+    /* box-shadow: inset 0px 0px 16px 4px rgb(0, 0, 0); */
+    opacity: 0.5;
+  }
+  .photoBigPostInfoBottom {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.404);
+    height: 150px;
+    width: 100%;
+    bottom: 0px;
+  }
+  .photoBigPostInfo-ArrowLeft {
+    position: absolute;
+    /* background-color: rgb(52, 29, 185); */
+    height: 100%;
+    width: 50%;
+    left: 0px;
+  }
+  .photoBigPostInfo-ArrowRight {
+    position: absolute;
+    /* background-color: rgb(151, 23, 23); */
+    height: 100%;
+    width: 50%;
+    right: 0px;
+  }
+  .fa-chevron-leftBigPost {
+    color: white;
+    position: absolute;
+    top: calc(50% - 50px);
+    left: 16px;
+    font-size: 50px;
+  }
+  .fa-chevron-rightBigPost {
+    color: white;
+    position: absolute;
+    top: calc(50% - 50px);
+    right: 16px;
+    font-size: 50px;
+  }
+  .rightBigPost {
+    background-color: rgb(53, 51, 51);
+    width: 400px;
+    height: calc(100vh - 40px);
+    margin-top: 20px;
+    border-radius: 0px 10px 10px 0px;
+  }
+  .rightBigPost0 {
+    cursor: pointer;
+    border-radius: 0px 10px 0px 0px;
+    background-color: rgba(18, 18, 19, 0.5);
+    /* height: 180px; */
+    width: 100%;
+    display: flex;
+    padding-bottom: 4px;
+  }
+  .rightBigPost0Tittle {
+    height: 50px;
+    width: 100%;
+    /* background-color: rgb(248, 246, 126); */
+    color: rgb(240, 240, 240);
+  }
+  .rightBigPost0TittleGiant {
+    margin-top: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: -5px;
+    /* padding: 0; */
+    color: rgb(240, 240, 240);
+  }
+  .rightBigPost0TittleGiant:hover {
+    text-decoration: underline;
+  }
+  .rightBigPost0TittleSmall {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 0px;
+    /* padding: 0; */
+  }
+  .rightBigPost1 {
+    color: rgb(240, 240, 240);
+    /* background-color: blue; */
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 0px;
+    /* height: 200px; */
+    /* padding: 0; */
+  }
+
+  .rightBigPost1_readmore:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .rightBigPost2 {
+    cursor: pointer;
+    /* background-color: rgb(155, 20, 20); */
+    display: flex;
+    /* margin-left: 80px; */
+    /* margin-right: 8px; */
+    /* margin-top: 0px; */
+    /* height: 200px; */
+    /* padding: 0; */
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(252, 252, 252, 0.25);
+  }
+  .rightBigPost2_pointHolder {
+    display: flex;
+    margin-left: 8px;
+    /* background-color: khaki; */
+  }
+  .photoRP3Info_points_True {
+    height: 20px;
+    width: 20px;
+    margin-left: 2px;
+    border-radius: 30%;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+  .photoRP3Info_points_False {
+    height: 20px;
+    width: 20px;
+    margin-left: 2px;
+    border-radius: 30%;
+    /* background-color: rgb(148, 160, 182); */
+    border: 2px solid rgb(255, 255, 255);
+  }
+  .photoRP3Info_points_Null {
+    height: 20px;
+    width: 20px;
+    margin-left: 2px;
+    border-radius: 30%;
+    border: 2px solid rgba(255, 255, 255);
+    background: linear-gradient(
+      to right,
+      rgb(255, 255, 255) 50%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    /* background-color: rgb(148, 160, 182); */
+  }
+  .rightBigPost2_numberLikes {
+    color: rgb(255, 255, 255);
+    margin-left: 8px;
+    font-weight: 400;
+  }
+  .rightBigPost2_numberComments {
+    color: rgb(255, 255, 255);
+    margin-right: 8px;
+    font-weight: 400;
+  }
+  .rightBigPost2_numberComments:hover,
+  .rightBigPost2_numberLikes:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .rightBigPost3 {
+    cursor: pointer;
+    /* background-color: rgb(23, 126, 167); */
+    display: flex;
+    border-bottom: 0.5px solid rgba(252, 252, 252, 0.25);
+    /* height: 26px; */
+    /* justify-content: space-around; */
+    /* border-left: 8px; */
+  }
+  .rightBigPost3_buttons {
+    /* background-color: white; */
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    /* background-color: rgb(17, 102, 28); */
+    flex-grow: 1;
+    text-align: center;
+    /* width: 100px; */
+    margin: 1px;
+    color: white;
+  }
+  .rightBigPost3_buttons:hover {
+    background-color: rgba(18, 18, 19, 0.5);
+  }
+}

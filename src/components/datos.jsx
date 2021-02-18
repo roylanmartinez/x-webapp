@@ -1,0 +1,103 @@
+const datos_test = [{
+  "id": 1,
+  "name": "Rosette",
+  "image": 2,
+  "points": 3
+}, {
+  "id": 2,
+  "name": "Kendrick",
+  "image": 4,
+  "points": 4
+}, {
+  "id": 3,
+  "name": "Amble",
+  "image": 2,
+  "points": 4
+}, {
+  "id": 4,
+  "name": "Jessalin",
+  "image": 1,
+  "points": 1
+}, {
+  "id": 5,
+  "name": "Aurora",
+  "image": 5,
+  "points": 1
+}, {
+  "id": 6,
+  "name": "Karlotte",
+  "image": 5,
+  "points": 5
+}, {
+  "id": 7,
+  "name": "Elnar",
+  "image": 1,
+  "points": 0
+}, {
+  "id": 8,
+  "name": "Dorene",
+  "image": 3,
+  "points": 4
+}, {
+  "id": 9,
+  "name": "Miles",
+  "image": 5,
+  "points": 5
+}, {
+  "id": 10,
+  "name": "Yolanthe",
+  "image": 5,
+  "points": 5
+}, {
+  "id": 11,
+  "name": "Royal",
+  "image": 2,
+  "points": 1
+}, {
+  "id": 12,
+  "name": "Marrilee",
+  "image": 3,
+  "points": 2
+}, {
+  "id": 13,
+  "name": "Bette",
+  "image": 1,
+  "points": 1
+}, {
+  "id": 14,
+  "name": "Gallagher",
+  "image": 2,
+  "points": 1
+}, {
+  "id": 15,
+  "name": "Anna-maria",
+  "image": 4,
+  "points": 3
+}, {
+  "id": 16,
+  "name": "Hussein",
+  "image": 5,
+  "points": 2
+}, {
+  "id": 17,
+  "name": "Rand",
+  "image": 1,
+  "points": 3
+}, {
+  "id": 18,
+  "name": "Thelma",
+  "image": 4,
+  "points": 5
+}, {
+  "id": 19,
+  "name": "Barrie",
+  "image": 5,
+  "points": 0
+}, {
+  "id": 20,
+  "name": "Lucine",
+  "image": 5,
+  "points": 4
+}]
+
+export default datos_test;
