@@ -30,4 +30,4 @@ import "./fa/css/all.css";
 //   })
 //   .then(result => console.log(result));
 
-ReactDOM.render(<CentralBody  />, document.getElementById("root"));
+ReactDOM.render( <CentralBody  />, document.getElementById("root"));
