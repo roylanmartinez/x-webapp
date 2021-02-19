@@ -113,7 +113,7 @@ class Navbar extends Component {
             className={"navbar-button " + this.props.classesButNav[5]}
             onClick={() => {
               this.props.handleColor(5);
-              this.props.history.push("/profile/usertest");
+              this.props.history.push("/profile/usertest/");
             }}
           >
             <i

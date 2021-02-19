@@ -3,6 +3,19 @@ const favicon = require('express-favicon');
 const path = require('path');
 const port = process.env.PORT || 8080;
 const app = express();
+
+// force switch from http to htttps
+
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
+
+
 app.use(favicon(__dirname + '/build/favicon.ico'));
 // the __dirname is the current directory from where the script is running
 app.use(express.static(__dirname));

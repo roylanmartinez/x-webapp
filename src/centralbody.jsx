@@ -70,13 +70,13 @@ class CentralBody extends Component {
   // This functions sets the color pattern for the navbar
   setBase = () => {
     // console.log(window.location.href.split('/')[3]);
-    if (["", "main"].includes(window.location.href.split('/')[window.location.href.split('/').length - 1])) {
-      // If the last element of the splitted url is "" or "main"
+    if (window.location.href.split('/').length === 4) {
+      // If the splited url length is 4
       this.setState({
         classesButNav: ["lightedR","noLightedR","noLightedR","noLightedR","noLightedR","noLightedR",],
       });
-    } else if (/profile/.test(window.location.href.split('/')[4])) {
-      // If the fourth element of the splitted url is "profile"
+    } else if (/profile/.test(window.location.href)) {
+      // if the url finishes with profile/usertest/ or profile/usertest
       this.setState({
         classesButNav: ["noLightedR","noLightedR","noLightedR","noLightedR","noLightedR","lightedR",
         ],

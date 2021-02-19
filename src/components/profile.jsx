@@ -40,15 +40,16 @@ class Profile extends Component {
     // This function to work needs to handle a click inside a div whoose className contains "Background"
     if (event.target.className.includes("Background")) {
       this.setState({ layer: null });
-      this.props.history.push("/profile/usertest");
+      this.props.history.push("/profile/usertest/");
     }
   };
 
   render() {
     let layer;
     if (
-      // If the penultime item of the url is 'profile'
-      /profile/.test(window.location.href.split("/")[window.location.href.split("/").length - 2]) &&
+      // if the url finishes with profile/usertest/ or profile/usertest
+      /profile\/usertest(|\/)$/.test(window.location.href) &&
+      // if there are not div layers over the profile section
       this.state.layer === null 
     ) {
       document.body.style.overflow = "unset";
@@ -69,7 +70,7 @@ class Profile extends Component {
         ></UploadReview>
       );
     } else if (
-      /followers/.test(window.location.href.split("/")[6])
+      /profile\/usertest\/followers(|\/)$/.test(window.location.href)
     ) {
       // Block scroll Feature
       document.body.style.overflow = "hidden";
@@ -83,7 +84,7 @@ class Profile extends Component {
         ></LayerFollowers>
       );
     } else if (
-      /following/.test(window.location.href.split("/")[6])
+      /profile\/usertest\/following(|\/)$/.test(window.location.href)
     ) {
       // Block scroll Feature
       document.body.style.overflow = "hidden";
@@ -96,7 +97,7 @@ class Profile extends Component {
         ></LayerFollowers>
       );
     } else if (
-      /bigpost/.test(window.location.href.split("/")[6])
+      /profile\/usertest\/bigpost\/[0-9]+(|\/)$/.test(window.location.href)
     ) {
       console.log('asdfasdf')
       // Block scroll Feature
@@ -279,6 +280,7 @@ class Profile extends Component {
                               this.props.history.push(
                                 `/profile/usertest/bigpost/${datos.id}`
                               );
+                              this.setState({ layer: "bigPost"})
                             }}></ProfileSlider>
                       </div>
                     </div>
