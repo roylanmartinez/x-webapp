@@ -1,2 +1,2 @@
 react-router
-In top head of index.html there is a sript that enforces ssl connection
+react-https-redirect
