@@ -1,4 +1,5 @@
 import React from "react";
+import HttpsRedirect from 'react-https-redirect'
 import ReactDOM from "react-dom";
 import CentralBody from "./centralbody";
 import "./styleB.css";
@@ -30,4 +31,4 @@ import "./fa/css/all.css";
 //   })
 //   .then(result => console.log(result));
 
-ReactDOM.render( <CentralBody  />, document.getElementById("root"));
+ReactDOM.render(<HttpsRedirect> <CentralBody  /></HttpsRedirect>, document.getElementById("root"));
