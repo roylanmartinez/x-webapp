@@ -1,2 +1,2 @@
 react-router
-react-https-redirect
+heroku-buildpack-static

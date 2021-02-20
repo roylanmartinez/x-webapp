@@ -31,7 +31,7 @@ class Profile extends Component {
   };
 
   handleCloseLayer = (event) => {
-    // this.props.history.pop(this.props.history.length - 1);
+    this.props.history.push("/profile/usertest/");
     this.setState({ layer: null });
   };
 
@@ -39,8 +39,7 @@ class Profile extends Component {
     // It handles the close effect of the followers div
     // This function to work needs to handle a click inside a div whoose className contains "Background"
     if (event.target.className.includes("Background")) {
-      this.setState({ layer: null });
-      this.props.history.push("/profile/usertest/");
+      this.handleCloseLayer()
     }
   };
 
@@ -99,12 +98,11 @@ class Profile extends Component {
     } else if (
       /profile\/usertest\/bigpost\/[0-9]+(|\/)$/.test(window.location.href)
     ) {
-      console.log('asdfasdf')
       // Block scroll Feature
       document.body.style.overflow = "hidden";
       layer = (
         <BigPost 
-        onBlur={this.handleCloseLayer} 
+        onClose={this.handleCloseLayer} 
         onClickBackground={this.handleCloseOnClick}
         thisPropsHistoryPush={this.props.history.push}
         ></BigPost>

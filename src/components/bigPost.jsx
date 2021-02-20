@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import datos_test from "./datos";
 
 class BigPost extends Component {
@@ -76,7 +76,6 @@ class BigPost extends Component {
             <div className="rightBigPost"> 
                 <div className="rightBigPost0"> 
                     <img
-                    onClick={this.props.onBlur}
                     className="editProfileHeaderImage ml-2 mt-2"
                     src={require("../assets/images/profileImage.jpeg").default}
                     alt="Avatar"
@@ -87,13 +86,25 @@ class BigPost extends Component {
                     </div>
                     
                 </div>
-                <p className="rightBigPost1">{(this.state.text.length >= 50 && this.state.readMore === false) ? 
-                    <p>{this.state.text.slice(0, 400)}
-                    <b onClick={()=> this.setState({readMore: true})} className="rightBigPost1_readmore">...read more</b>
-                    </p>   
-                : 
-                    this.state.text}
+
+                
+                
+                <p className="rightBigPost1">
+                    {
+                        (this.state.text.length >= 400 && this.state.readMore === false) ? 
+                        (this.state.text.slice(0, 400)) : this.state.text
+                    }
+                    
+                    <span
+                    onClick={()=> this.setState({readMore: true})} 
+                    // style={{display: (this.state.readMore) ? "block" : "none"}}
+                    className={"rightBigPost_comment_readMore" + (this.state.readMore ? "_true" : "_false")}>
+                    ...read more
+                    </span>
+                    
                 </p>
+                
+                
                 <div className="rightBigPost2">
                      <div className="rightBigPost2_pointHolder">
                          {punctuation2(2.5, 'photoRP3Info_points_')}
@@ -113,11 +124,13 @@ class BigPost extends Component {
                     <h6 className="rightBigPost3_buttons">Comment</h6>
                     <h6 className="rightBigPost3_buttons">Favorite</h6>
                 </div>
+                <Comment></Comment>
                 
             </div>
                 
             <i
-          onClick={this.props.onBlur}
+        
+        onClick={this.props.onClose}
           className="fas fa-times closeLayerEditProfile"
         ></i>
         </div> );
@@ -180,6 +193,46 @@ const punctuation2 = (number, custom_classname = 'photoRP3Info_points_') => {
     )
 
   }
+
+  const Comment = () => {
+    const [readMore, setReadMore] = useState(false);
+    const [text, setText] = useState("adf asdfasdfbasdjf bhasdjf haskdjfhasjkldfhasjkd hksjdhf kasjdhfjkashd fkjasdhfkajsdhf A asdFa sdfasdf asdfa sdfasd fasdas dfasd fasdfsasdf asdf asdfas dfasdasdf asdf asdf asdf asdf sadfasdf asdf asdfasdfbasdjf bhasdjf haskdjfhasjkldfhasjkd hksjdhf kasjdhfjkashd fkjasdhfkajsdhf sdFa sdfasdf asdfa sdfasd fasdas dfasd fasdfsasdf asdf asdfas dfasdasdf asdf asdf asdf asdf sadfasdf asdf asdfasdfbasdjf bhasdjf haskdjfhasjkldfhasjkd hksjdhf kasjdhfjkashd fkjasdhfkajsdhf  fasd fasdf asdfas dff");
+    // const [text, setText] = useState("ssjf");
+
+    return (
+        <React.Fragment>
+            <div className="rightBigPost_comment">
+            <img
+            className="editProfileHeaderImage_small ml-2 mr-1 mt-2"
+            src={require("../assets/images/profileImage2.jpeg").default}
+            alt="Avatar"
+            ></img>
+            <div className="rightBigPost_comment_right">
+                <b className="rightBigPost_comment_title">Queralt Vargas</b>
+                <p className="rightBigPost_comment_text">
+                    {(text.length >= 200 && readMore === false) ? text.slice(0, 200) : text}
+                <span
+                onClick={()=> setReadMore(true)} 
+                // style={{display: (readMore === false) ? "block" : "none"}}
+                className={"rightBigPost_comment_readMore" + (readMore ? "_true" : "_false")}>
+                ...read more
+                </span>
+                </p>
+                
+
+                
+            </div>
+            
+        </div>
+        <div className="rightBigPost_comment_bottom">
+        <small>Like • Reply</small>
+        <small>123 likes</small>
+        </div>
+        </React.Fragment>
+        
+
+    );
+};
 
       
 

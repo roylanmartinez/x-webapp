@@ -914,6 +914,13 @@
     /* margin-left: 60px;/ */
     cursor: pointer;
   }
+  .editProfileHeaderImage_small {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    /* margin-left: 60px;/ */
+    cursor: pointer;
+  }
   .editProfileHeaderText {
     color: rgb(179, 179, 179);
     font-weight: 300;
@@ -1435,5 +1442,45 @@
   }
   .rightBigPost3_buttons:hover {
     background-color: rgba(18, 18, 19, 0.5);
+  }
+  .rightBigPost_comment {
+    display: flex;
+    /* height: 200px; */
+    width: 100%;
+    background-color: rgb(83, 83, 83);
+  }
+  .rightBigPost_comment_right {
+    border-radius: 10px;
+    margin-right: 8px;
+    background-color: aquamarine;
+  }
+  .rightBigPost_comment_title {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  .rightBigPost_comment_title:hover {
+    /* font-weight: 100; */
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .rightBigPost_comment_text {
+    line-height: 18px;
+  }
+  .rightBigPost_comment_readMore_false {
+    font-weight: 600;
+  }
+  .rightBigPost_comment_readMore_false:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    /* white-space: nowrap; */
+  }
+  .rightBigPost_comment_readMore_true {
+    display: none;
+  }
+  .rightBigPost_comment_bottom {
+    background-color: yellow;
+    height: 25px;
+    width: 350px;
+    margin-left: 50px;
   }
 }
