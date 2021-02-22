@@ -7,22 +7,7 @@ class BigPost extends Component {
         dato: datos_test.filter(
             item => item.id === parseInt(window.location.href.split('/')[window.location.href.split('/').length-1])
             )[0],
-        text: `Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit
-                    . Phasellus imperdiet, null
-                    a et dictum interdum, nisi 
-                    lorem egestas vitae scel
-                    erisque enim ligula venenatis dolor. 
-                    Maecenas nisl est, ultrices nec congue 
-                    eget, auctor vitae massa. Fusce luctus v
-                    estibulum augue ut aliquet. Nunc sagitti
-                    s dictum nisi, sed ullamcorper ipsum dig
-                    nissim ac. In at libero sed nunc venenat
-                    is imperdiet sed ornare turpis. Donec vi
-                    tae dui eget tellus gravida venenatis. 
-                    Integer fringilla congue eros non fermen
-                    tum. Sed dapibus pulvinar nibh tempor por
-                    ta.`,
+        text: `As a resource devoted to the principldfg dfge that every patriot has a God-given right to defend country, family and oneself with firearms, we also believe that without access to ammunition, there would be no reason to own guns, thus our mission, selling high-quality ammunition at affordable prices, is our priority.`,
         readMore: false,
         }
     
@@ -92,7 +77,7 @@ class BigPost extends Component {
                 <p className="rightBigPost1">
                     {
                         (this.state.text.length >= 400 && this.state.readMore === false) ? 
-                        (this.state.text.slice(0, 400)) : this.state.text
+                        (this.state.text.slice(400, 10)) : this.state.text
                     }
                     
                     <span
@@ -196,6 +181,56 @@ const punctuation2 = (number, custom_classname = 'photoRP3Info_points_') => {
 
   const Comment = () => {
     const [readMore, setReadMore] = useState(false);
+    const [text, setText] = useState("In today’s divisive political climate, few issues are as contentious as those relating to Second Amendment rights. Convoluted legislation and state-specific legal differences make the topic of gun possession a hot button for folks on both ends of the barrel.");
+    // const [text, setText] = useState("ssjf");
+
+    return (
+        <React.Fragment>
+            <div className="rightBigPost_comment">
+            <img
+            className="editProfileHeaderImage_small ml-2 mr-1 mt-2"
+            src={require("../assets/images/profileImage2.jpeg").default}
+            alt="Avatar"
+            ></img>
+            <div className="rightBigPost_comment_right">
+                <b className="rightBigPost_comment_title">Queralt Vargas</b>
+                <small> @roylanmartinez12</small>
+                <p className="rightBigPost_comment_text">
+                    {(text.length >= 200 && readMore === false) ? text.slice(0, 200) : text}
+                <span
+                onClick={()=> setReadMore(true)} 
+                // style={{display: (readMore === false) ? "block" : "none"}}
+                className={"rightBigPost_comment_readMore" + (readMore ? "_true" : "_false")}>
+                ...read more
+                </span>
+                </p>
+            </div>
+            
+        </div>
+        <div className="rightBigPost_comment_bottom">
+            <small>
+                <span className="rightBigPost_comment_bottom_text">Like</span> 
+                <span> • </span> 
+                <span className="rightBigPost_comment_bottom_text">123 likes</span>
+            </small>
+            <small>
+                <span className="rightBigPost_comment_bottom_text">Reply</span> 
+                <span>  • </span> 
+                <span className="rightBigPost_comment_bottom_text">2 replies</span>
+            </small>
+            <small className="rightBigPost_comment_bottom_text_report">
+                •••
+            </small>
+            {/* <div></div> */}
+        </div>
+        </React.Fragment>
+        
+
+    );
+};
+
+const ReplyComment = () => {
+    const [readMore, setReadMore] = useState(false);
     const [text, setText] = useState("adf asdfasdfbasdjf bhasdjf haskdjfhasjkldfhasjkd hksjdhf kasjdhfjkashd fkjasdhfkajsdhf A asdFa sdfasdf asdfa sdfasd fasdas dfasd fasdfsasdf asdf asdfas dfasdasdf asdf asdf asdf asdf sadfasdf asdf asdfasdfbasdjf bhasdjf haskdjfhasjkldfhasjkd hksjdhf kasjdhfjkashd fkjasdhfkajsdhf sdFa sdfasdf asdfa sdfasd fasdas dfasd fasdfsasdf asdf asdfas dfasdasdf asdf asdf asdf asdf sadfasdf asdf asdfasdfbasdjf bhasdjf haskdjfhasjkldfhasjkd hksjdhf kasjdhfjkashd fkjasdhfkajsdhf  fasd fasdf asdfas dff");
     // const [text, setText] = useState("ssjf");
 
@@ -218,15 +253,24 @@ const punctuation2 = (number, custom_classname = 'photoRP3Info_points_') => {
                 ...read more
                 </span>
                 </p>
-                
-
-                
             </div>
             
         </div>
         <div className="rightBigPost_comment_bottom">
-        <small>Like • Reply</small>
-        <small>123 likes</small>
+            <small>
+                <span className="rightBigPost_comment_bottom_text">Like</span> 
+                <span> • </span> 
+                <span className="rightBigPost_comment_bottom_text">123 likes</span>
+            </small>
+            <small>
+                <span className="rightBigPost_comment_bottom_text">Reply</span> 
+                <span>  • </span> 
+                <span className="rightBigPost_comment_bottom_text">2 replies</span>
+            </small>
+            <small className="rightBigPost_comment_bottom_text_report">
+                •••
+            </small>
+            {/* <div></div> */}
         </div>
         </React.Fragment>
         

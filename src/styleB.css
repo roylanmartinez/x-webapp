@@ -1347,8 +1347,8 @@
   .rightBigPost1 {
     color: rgb(240, 240, 240);
     /* background-color: blue; */
-    margin-left: 8px;
-    margin-right: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-top: 0px;
     /* height: 200px; */
     /* padding: 0; */
@@ -1444,15 +1444,17 @@
     background-color: rgba(18, 18, 19, 0.5);
   }
   .rightBigPost_comment {
+    margin-top: 5px;
     display: flex;
     /* height: 200px; */
     width: 100%;
-    background-color: rgb(83, 83, 83);
+    /* background-color: rgb(83, 83, 83); */
   }
   .rightBigPost_comment_right {
+    color: white;
     border-radius: 10px;
     margin-right: 8px;
-    background-color: aquamarine;
+    background-color: rgba(18, 18, 19, 0.363);
   }
   .rightBigPost_comment_title {
     margin-left: 5px;
@@ -1464,7 +1466,9 @@
     cursor: pointer;
   }
   .rightBigPost_comment_text {
-    line-height: 18px;
+    padding-left: 8px;
+    padding-right: 8px;
+    line-height: 20px;
   }
   .rightBigPost_comment_readMore_false {
     font-weight: 600;
@@ -1478,9 +1482,25 @@
     display: none;
   }
   .rightBigPost_comment_bottom {
-    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: yellow; */
+    color: white;
     height: 25px;
-    width: 350px;
-    margin-left: 50px;
+    width: 320px;
+    margin-left: 60px;
+    /* margin-right: 10px; */
+  }
+  .rightBigPost_comment_bottom_text {
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .rightBigPost_comment_bottom_text_report {
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .rightBigPost_comment_bottom_text:hover {
+    text-decoration: underline;
   }
 }
