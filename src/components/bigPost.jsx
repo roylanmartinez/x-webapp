@@ -193,8 +193,8 @@ const punctuation2 = (number, custom_classname = 'photoRP3Info_points_') => {
             alt="Avatar"
             ></img>
             <div className="rightBigPost_comment_right">
-                <b className="rightBigPost_comment_title">Queralt Vargas</b>
-                <small> @roylanmartinez12</small>
+                <b className="rightBigPost_comment_title">Queralt Vargas asdf asdf asdf asdfa sdf asdfasdf</b>
+                <small className="ml-2 mr-2">@roylanmartinez12</small>
                 <p className="rightBigPost_comment_text">
                     {(text.length >= 200 && readMore === false) ? text.slice(0, 200) : text}
                 <span
