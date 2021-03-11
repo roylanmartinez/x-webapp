@@ -96,18 +96,45 @@ class Navbar extends Component {
             ></i>
           </button>
 
-          {/* searcher navbar */}
-          <div
-            onBlur={this.props.onBlurSearcherContainer}
-            tabIndex="0"
-            className={"searcherContainer " + this.props.positions["behind"]}
-            onClick={() => {
-              this.props.onUp();
+          <div 
+          onBlur={this.props.onBlurSearcherContainer} 
+          className="searcherContainerWideButton"
+          tabIndex="0"
+          onClick={() => {
+            this.props.onUp();
             }}
           >
+              <div className={"searcherContainerTop " + this.props.positions["behind"]}>
+                top top top
+              </div>
+              <div className="searcherContainerBottom">
+                  <div className="wrapperSearcherInput">
+                    <i className="navbarIcon fas fa-search"></i>
+                    <input
+                    placeholder="Thinking? Try the near me button"
+                    className="inputSearch"
+                    ></input>
+                  </div>
+                  <div className="hrSearch"></div>
+                  <div className="preResultSearch"></div>
+              </div>
+      
+              {/* <Searcher positions={this.props.positions} /> */}
+              {/* </div> */}
+              {/* <div
+            
+            
+            className={"searcherContainer " + this.props.positions["behind"]}
+            onClick={() => {
+            this.props.onUp();
+            }}
+            >
+              <h1 style={{position: "fixed"}}>asdfasdf</h1>
             <Searcher positions={this.props.positions} />
-            <div className={"preResultSearch"}></div>
-          </div>
+            
+            </div>  */}
+          
+          </div>        
           <button
             id={"profileButton"}
             className={"navbar-button " + this.props.classesButNav[5]}

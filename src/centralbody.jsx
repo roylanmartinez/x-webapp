@@ -7,8 +7,10 @@ import Messages from "./components/messages";
 import Searcher from "./components/searcher";
 import Map from "./components/map";
 import Settings from "./components/settings";
+import Authentication from "./components/authentication";
 
 import { Switch, Route, BrowserRouter } from "react-router-dom";
+
 
 class CentralBody extends Component {
   state = {
@@ -174,7 +176,14 @@ class CentralBody extends Component {
          It redirects to a particular component. It can go that component with properties  */}
         <div className="PARENT">
           <Switch>
-            <Route exact path="/" render={() => <Feednews />} />
+            <Route exact path="/" render={() => 
+              // if user is logged in return <Feednews />
+
+              //else return authentication
+
+              <Authentication />
+              
+            } />
             <Route path="/profile/usertest/settings" render={() => <Settings />} />
             <Route path="/profile/usertest" render={() => <Profile />} />
           </Switch>
