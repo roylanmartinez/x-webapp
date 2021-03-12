@@ -4,31 +4,39 @@ class Authentication extends Component {
   state = {};
 
   handleScroll = () => {
-    console.log(this.au1.scrollTop);
+    console.log(this.authentication.scrollTop);
     // this.au.style.marginTop = "20px";
-    this.au.style.paddingTop = `${this.au1.scrollTop * 2}px`;
-    // console.log(this.au.style.marginTop);
+    this.header.style.marginTop = `${
+      50 + this.authentication.scrollTop * 0.1
+    }px`;
   };
 
   render() {
     return (
       <div
-        ref={(au1) => {
-          this.au1 = au1;
+        ref={(authentication) => {
+          this.authentication = authentication;
         }}
         onScroll={this.handleScroll}
         className="authentication"
       >
+        <img
+          // onClick={() => this.props.history.push("/profile/usertest")}
+          className="auth_logo"
+          src={require("../assets/images/logo.png").default}
+          alt="Avatar"
+        ></img>
         <div className="auth">
           <div
-            ref={(au) => {
-              this.au = au;
+            ref={(header) => {
+              this.header = header;
             }}
             className="auth_header"
           >
             <div className="auth_headerLeft">
               <h4 className="auth_description">
-                Designed for restaurant lovers
+                Designed for restaurant lovers{" "}
+                <span style={{ fontSize: "16px" }}>❤️</span>
               </h4>
               <h1 className="auth_title">restaurantfy</h1>
             </div>
