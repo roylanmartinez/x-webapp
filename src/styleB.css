@@ -273,6 +273,18 @@
   
   
   
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   
@@ -287,9 +299,10 @@
   color div: rgb(23, 21, 29)
   color text div profile: rgb(179, 179, 179)
   color text posts (read necessity): rgb(240, 240, 240);
+  our group color (like facebook blue): background-color: rgb(142, 97, 255)
   */
   .authentication {
-    background-color: wheat;
+    background-color: rgb(179, 179, 179);
     position: relative;
     overflow-y: scroll;
     z-index: 6;
@@ -316,46 +329,217 @@
     border-radius: 10px;
   }
   .auth_header {
+    position: relative;
     margin-top: 50px;
     height: 500px;
+    width: 800px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     /* background-color: rgba(122, 122, 38, 0.39); */
   }
-
-  .auth_headerLeft {
+  .auth_headerBack {
+    z-index: 0;
+    /* overflow-y: hidden; */
+    position: relative;
+    display: flex;
+    width: 800px;
+    height: 500px;
+    /* background-color: aliceblue; */
+    background-color: rgb(146, 37, 37);
+  }
+  .auth_register_cont {
+    overflow: hidden;
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    background: rgb(27, 25, 32);
+    /* background: linear-gradient(to left, rgb(208, 200, 228), rgb(27, 25, 32)); */
+  }
+  .auth_login_cont {
+    overflow: hidden;
+    margin-left: 400px;
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    background: rgb(27, 25, 32);
+  }
+  .auth_register {
+    width: 400px;
+    height: 500px;
+    background-color: rgb(66, 56, 95);
+    /* background: linear-gradient(to right, rgb(139, 122, 187), rgb(27, 25, 32)); */
+  }
+  .auth_login {
+    /* margin-left: 50px; */
+    width: 400px;
+    height: 500px;
+    background-color: rgb(66, 56, 95);
+    /* background: linear-gradient(to left, rgb(139, 122, 187), rgb(27, 25, 32)); */
+  }
+  .auth_animation_right_login {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: auth_animation_right_login;
+  }
+  .auth_animation_left_login {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: auth_animation_left_login;
+  }
+  @keyframes auth_animation_right_login {
+    from {
+      /* background-color: rgb(27, 25, 32); */
+      margin-left: -400px;
+    }
+    to {
+      /* background-color: rgb(142, 97, 255); */
+      margin-left: 0px;
+    }
+  }
+  @keyframes auth_animation_left_login {
+    from {
+      /* background-color: rgb(142, 97, 255); */
+      margin-left: 0px;
+    }
+    to {
+      /* background-color: rgb(27, 25, 32); */
+      margin-left: -400px;
+    }
+  }
+  .auth_headerFront {
+    position: absolute;
+    background-color: rgb(27, 25, 32);
+    margin-left: 0px;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     width: 400px;
-    height: 100%;
+    height: 500px;
+  }
+  .auth_animation_right {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: auth_animation_right;
+  }
+  .auth_animation_left {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: auth_animation_left;
+  }
+
+  @keyframes auth_animation_right {
+    from {
+      /* background-color: aqua; */
+      margin-left: 0px;
+    }
+    to {
+      /* background-color: rgb(112, 63, 63); */
+      margin-left: 400px;
+    }
+  }
+  @keyframes auth_animation_left {
+    from {
+      /* background-color: aqua; */
+      margin-left: 400px;
+    }
+    to {
+      /* background-color: rgb(252, 29, 29); */
+      margin-left: 0px;
+    }
+  }
+
+  .auth_headerFront_bottom {
+    display: flex;
+    width: 400px;
+    /* background-color: rgb(27, 25, 32); */
+    /* background-color: rgb(224, 220, 235); */
+    overflow: hidden;
+    padding-right: 200px;
+    padding-left: -200px;
+  }
+  .auth_headerFront_left,
+  .auth_headerFront_right {
+    min-width: 400px;
+    /* width: 00px; */
+    /* background-color: red; */
+  }
+  .auth_headerFront_left {
+    margin-left: 0px;
+  }
+  .auth_headerFront_left_anim {
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-name: auth_headerFront_left_anim;
+  }
+  .auth_headerFront_left_anim_inv {
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-name: auth_headerFront_left_anim_inv;
+  }
+
+  @keyframes auth_headerFront_left_anim {
+    from {
+      margin-left: 0px;
+    }
+    to {
+      margin-left: -385px;
+    }
+  }
+  @keyframes auth_headerFront_left_anim_inv {
+    from {
+      margin-left: -385px;
+    }
+    to {
+      margin-left: 0px;
+    }
   }
   .auth_description {
-    /* width: 400px; */
     /* background-color: aqua; */
+    /* margin-left: 15px; */
     overflow: hidden;
     white-space: nowrap;
     border-right: 0.2em solid rgb(240, 240, 240);
     /* position: absolute; */
-    color: rgb(240, 240, 240);
-    bottom: 10px;
+    /* color: rgb(240, 240, 240); */
+    /* bottom: 10px; */
     /* font-weight: 300; */
     /* margin-left: -40px;  */
     /* letter-spacing: 0.15em;  */
 
     animation: typing 3.5s steps(40, end) forwards,
       blink-caret 0.75s step-end infinite;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
+    opacity: 0;
+    width: 400px;
+  }
+  .auth_description_register {
+    animation: typing_smaller 3.5s steps(40, end) forwards,
+      blink-caret 0.75s step-end infinite;
+    animation-delay: 0.5s;
     opacity: 0;
   }
-  @keyframes typing {
+  @keyframes typing_smaller {
     from {
+      /* opacity: 1; */
       width: 0;
       opacity: 1;
     }
     to {
       opacity: 1;
-      width: 100%;
+      width: 335px;
+    }
+  }
+
+  @keyframes typing {
+    from {
+      /* opacity: 1; */
+      width: 0;
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+      width: 370px;
     }
   }
 
@@ -376,14 +560,11 @@
     font-weight: 700;
     /* margin-bottom: 20px; */
   }
-  .auth_headerRight {
-    /* position: fixed; */
-    margin-left: 50px;
-    width: 400px;
-    height: 100%;
-    /* background-color: aliceblue; */
-    background-color: rgb(23, 21, 29);
+
+  .auth_description {
+    color: rgb(240, 240, 240);
   }
+
   .auth_footer {
     /* position: fixed; */
     /* z-index: 10; */
@@ -400,6 +581,18 @@
   
   
   
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   
