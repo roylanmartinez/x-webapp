@@ -9,7 +9,7 @@ const Authentication = () => {
 
   const handleScroll = () => {
     // scroll effect top div
-    authentication.current.style.marginTop = "20px";
+    // authentication.current.style.marginTop = "20px";
     header.current.style.marginTop = `${
       50 + authentication.current.scrollTop * 0.25
     }px`;
