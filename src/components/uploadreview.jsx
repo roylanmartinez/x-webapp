@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class UploadReview extends Component {
-  
   state = {
     // rating will be the patreon when mouse exits the div
     rating: [true, true, true, true, true],
@@ -16,24 +15,24 @@ class UploadReview extends Component {
   componentDidMount() {
     this.text.focus();
   }
-  
-  hiddenUpload = React.createRef()
+
+  hiddenUpload = React.createRef();
 
   handleHiddenUpload = (event) => {
-    this.hiddenUpload.current.click()
-  }
+    this.hiddenUpload.current.click();
+  };
 
-  handleHiddenChange = event => {
-    const images = [...Array(event.target.files.length).keys()]
-    this.setState(
-      {image: 
-        images.map(number => URL.createObjectURL(event.target.files[number])), 
-        imageLen: event.target.files.length}
-    )
-  }
+  handleHiddenChange = (event) => {
+    const images = [...Array(event.target.files.length).keys()];
+    this.setState({
+      image: images.map((number) =>
+        URL.createObjectURL(event.target.files[number])
+      ),
+      imageLen: event.target.files.length,
+    });
+  };
 
   render() {
-    
     return (
       <div
         onClick={this.props.onClickBackground}
@@ -43,10 +42,8 @@ class UploadReview extends Component {
           <div className={"uploadReviewReturn"} onClick={this.props.onBlur}>
             <i className="fas fa-arrow-left fa-arrow-leftReview"></i>
             <h5 className="uploadReviewContainerTitle"> Upload review</h5>
-            
           </div>
-          
-          
+
           <div className="editProfileHeader">
             <img
               onClick={this.props.onBlur}
@@ -80,7 +77,7 @@ class UploadReview extends Component {
               className="uploadReviewContainerTextArea"
             ></textarea>
           </div>
-          
+
           <div className="uploadReviewMiddle">
             <div
               onMouseLeave={() => {
@@ -175,16 +172,14 @@ class UploadReview extends Component {
               <b>
                 {`
               ${
-                [
-                  
-                  "bad", "inferior", "satisfactory", "good", "perfect",
-                ][this.state.priceHover.lastIndexOf(true)]
+                ["bad", "inferior", "satisfactory", "good", "perfect"][
+                  this.state.priceHover.lastIndexOf(true)
+                ]
               } `}
               </b>
             </h5>
           </div>
 
-          
           <div className="uploadReviewMiddle">
             <div
               onMouseLeave={() => {
@@ -268,15 +263,15 @@ class UploadReview extends Component {
                 }
               ></div>
             </div>
-            
+
             <h5 className="uploadReviewMiddlePuntuation">
               Speed was
               <b>
                 {`
               ${
-                [
-                  "bad", "inferior", "satisfactory", "good", "perfect",
-                ][this.state.timeHover.lastIndexOf(true)]
+                ["bad", "inferior", "satisfactory", "good", "perfect"][
+                  this.state.timeHover.lastIndexOf(true)
+                ]
               } `}
               </b>
             </h5>
@@ -382,21 +377,32 @@ class UploadReview extends Component {
               </b>
             </h5>
           </div>
-          <div className={"" + (this.state.imageLen === 0 ? "displayNone" : "uploadReviewImagesContainer")}>
+          <div
+            className={
+              "" +
+              (this.state.imageLen === 0
+                ? "displayNone"
+                : "uploadReviewImagesContainer")
+            }
+          >
             {
-              // It tests if there are images in the image holder, if there are the it would create a div holder 
+              // It tests if there are images in the image holder, if there are the it would create a div holder
               // for all them
-            this.state.imageLen === 0 ? "" : this.state.image.map((image) => 
-              <div className={"imagesUploadedReviewContainer"}>
-                <img key={image.id} className={"imagesUploadedReview"} src={image} alt="images uploaded"></img>
-              </div>
-            )
-            }            
-             
-            
+              this.state.imageLen === 0
+                ? ""
+                : this.state.image.map((image) => (
+                    <div className={"imagesUploadedReviewContainer"}>
+                      <img
+                        key={image.id}
+                        className={"imagesUploadedReview"}
+                        src={image}
+                        alt="images uploaded"
+                      ></img>
+                    </div>
+                  ))
+            }
           </div>
           <div className="buttonUploadWrapper">
-
             <button
               onClick={this.handleHiddenUpload}
               className="buttonProfile buttonUpload"
@@ -420,27 +426,30 @@ class UploadReview extends Component {
                 Store
               </h5>
             </button>
-            <button className="buttonProfile buttonUpload" onClick={()=> this.setState({
-              rating: [true, true, true, true, true],
-              ratingHover: [true, true, true, true, true],
-              price: [true, true, true, true, true],
-              priceHover: [true, true, true, true, true],
-              time: [true, true, true, true, true],
-              timeHover: [true, true, true, true, true],
-            })}>
+            <button
+              className="buttonProfile buttonUpload"
+              onClick={() =>
+                this.setState({
+                  rating: [true, true, true, true, true],
+                  ratingHover: [true, true, true, true, true],
+                  price: [true, true, true, true, true],
+                  priceHover: [true, true, true, true, true],
+                  time: [true, true, true, true, true],
+                  timeHover: [true, true, true, true, true],
+                })
+              }
+            >
               <h5 className="textButtonProfile textButtonRP1">
                 <i className="far fa-square fa-square-buttonUpload"></i> Rating
               </h5>
             </button>
             <button className="buttonProfile buttonUpload">
-                <h5 className="textButtonProfile textButtonRP1">
-                  <i className="fas fa-check fa-plus-circle-buttonUpload"></i>
-                  Post
-                </h5>
-              </button>
+              <h5 className="textButtonProfile textButtonRP1">
+                <i className="fas fa-check fa-plus-circle-buttonUpload"></i>
+                Post
+              </h5>
+            </button>
           </div>
-
-          
         </div>
 
         <i

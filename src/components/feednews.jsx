@@ -1,15 +1,4 @@
 import React, { Component } from "react";
-// import {useQuery, gql} from '@apollo/client'
-
-// const test = gql`
-// {
-//   allUsers {
-//     id
-//     name
-//    	followers
-//   }
-// }
-// `
 
 class FeedNews extends Component {
   state = {};
@@ -32,13 +21,13 @@ class FeedNews extends Component {
 //   if (loading) return <p>loading</p>
 //   if (error) return <p>error</p>
 //   return (
-    
+
 //     <React.Fragment>
 //       {
 //       data.allUsers.map(item=> <p key={item.id}>{item.name}</p>)
 //       }
 //     </React.Fragment>
-    
+
 //   )
 // }
 
