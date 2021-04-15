@@ -13,9 +13,8 @@ const UploadReview = (props) => {
     imageLen: 0,
   });
 
-  const hiddenUpload = React.useRef();
-
   const textArea = React.useRef();
+  const hiddenUpload = React.useRef();
 
   const handleHiddenUpload = (event) => {
     hiddenUpload.current.click();

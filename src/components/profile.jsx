@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 // import UploadReview from "./uploadreview";
-import UploadReview from "./ur";
+import UploadReview from "./uploadreview";
 import BigPost from "./bigPost";
 import datos_test from "./datos";
 import { withRouter } from "react-router-dom";
