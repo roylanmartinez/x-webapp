@@ -1,282 +1,270 @@
-import React, { Component, useState } from "react";
-// import UploadReview from "./uploadreview";
+import React, { useState, useEffect } from "react";
 import UploadReview from "./uploadreview";
 import BigPost from "./bigPost";
 import datos_test from "./datos";
 import { withRouter } from "react-router-dom";
 
-class Profile extends Component {
-  state = {
+const Profile = (props) => {
+  const [state, setState] = useState({
     profilePhotoPopUp: false,
     layer: null,
-  };
-  handleBlurPhotoProfile = (event) => {
+  });
+  const editProfile = React.useRef();
+
+  const handleBlurPhotoProfile = (event) => {
     if (event.relatedTarget !== null) {
       // If click is not null
       if (event.relatedTarget.className === "profileImageContainer") {
         // If click is not null and it is in profile Image
-        this.editProfile.blur();
+        editProfile.blur();
       } else if (event.currentTarget.contains(event.relatedTarget)) {
         // If click is inside popUp
-        this.editProfile.blur();
+        editProfile.blur();
       } else {
         // If click is not null and it is somewhere else than in Profile Image or popUp
-        this.editProfile.blur();
-        this.setState({ profilePhotoPopUp: false });
+        editProfile.blur();
+        setState({ profilePhotoPopUp: false });
       }
     } else {
       // If click is outside popUp and it is null
-      this.editProfile.blur();
-      this.setState({ profilePhotoPopUp: false });
+      editProfile.blur();
+      setState({ profilePhotoPopUp: false });
     }
   };
 
-  handleCloseLayer = (event) => {
-    this.props.history.push("/profile/usertest/");
-    this.setState({ layer: null });
+  const handleCloseLayer = (event) => {
+    props.history.push("/profile/usertest/");
+    setState({ layer: null });
   };
 
-  handleCloseOnClick = (event) => {
+  const handleCloseOnClick = (event) => {
     // It handles the close effect of the followers div
     // This function to work needs to handle a click inside a div whoose className contains "Background"
     if (event.target.className.includes("Background")) {
-      this.handleCloseLayer();
+      handleCloseLayer();
     }
   };
 
-  render() {
-    let layer;
-    if (
-      // if the url finishes with profile/usertest/ or profile/usertest
-      /profile\/usertest(|\/)$/.test(window.location.href) &&
-      // if there are not div layers over the profile section
-      this.state.layer === null
-    ) {
-      document.body.style.overflow = "unset";
-      layer = null;
-    } else if (this.state.layer === "viewPhoto") {
-      // Block scroll Feature
-      document.body.style.overflow = "hidden";
-      layer = (
-        <LayerViewPhoto closeLayer={this.handleCloseLayer}></LayerViewPhoto>
-      );
-    } else if (this.state.layer === "uploadReview") {
-      // Block scroll Feature
-      document.body.style.overflow = "hidden";
-      layer = (
-        <UploadReview
-          onClickBackground={this.handleCloseOnClick}
-          onBlur={this.handleCloseLayer}
-        ></UploadReview>
-      );
-    } else if (
-      /profile\/usertest\/followers(|\/)$/.test(window.location.href)
-    ) {
-      // Block scroll Feature
-      document.body.style.overflow = "hidden";
-      layer = (
-        <LayerFollowers
-          setStateProfile={this.handleCloseLayer}
-          closeLayer={this.handleCloseOnClick}
-          type="followers"
-          thisPropsHistory={this.props.history}
-          onBlur={this.handleCloseLayer}
-        ></LayerFollowers>
-      );
-    } else if (
-      /profile\/usertest\/following(|\/)$/.test(window.location.href)
-    ) {
-      // Block scroll Feature
-      document.body.style.overflow = "hidden";
-      layer = (
-        <LayerFollowers
-          setStateProfile={this.handleCloseLayer}
-          closeLayer={this.handleCloseOnClick}
-          type="following"
-          thisPropsHistory={this.props.history}
-        ></LayerFollowers>
-      );
-    } else if (
-      /profile\/usertest\/bigpost\/[0-9]+(|\/)$/.test(window.location.href)
-    ) {
-      // Block scroll Feature
-      document.body.style.overflow = "hidden";
-      layer = (
-        <BigPost
-          onClose={this.handleCloseLayer}
-          onClickBackground={this.handleCloseOnClick}
-          thisPropsHistoryPush={this.props.history.push}
-        ></BigPost>
-      );
-    }
-    return (
-      <div className="profile">
-        {layer}
-        <div
-          ref={(editProfile) => {
-            this.editProfile = editProfile;
-          }}
-          tabIndex="-1"
-          className={
-            "layer-editPhoto" +
-            (this.state.profilePhotoPopUp ? " onScreen" : "")
-          }
-          onBlur={this.handleBlurPhotoProfile}
-        >
-          <button
-            onClick={() => this.setState({ layer: "viewPhoto" })}
-            className="layer-editPhotoText0"
-          >
-            <div className="layer-editPhoto0-arrow"></div>View profile photo
-          </button>
-          <button
-            onClick={() => {
-              console.log("asd");
-              // this.setState({ layer: "editProfile" });
-            }}
-            className="layer-editPhotoText1"
-          >
-            <label htmlFor="file-profileImage" className="layer-editPhotoText1">
-              Upload profile photo
-            </label>
-          </button>
-          <input id="file-profileImage" type="file" />
-          <button
-            onClick={() => {
-              console.log("asd");
-              // this.setState({ layer: "viewPhoto" });
-            }}
-            className="layer-editPhotoText2"
-          >
-            Delete profile photo
-          </button>
-        </div>
-        <div className="leftProfile divProfile"></div>
-        <div className="rightProfile">
-          <div className="rightProfile0 divProfile">
-            <h5 className="profileType">Reviewer</h5>
-            <div className="profileImageContainerContainer">
-              <button
-                className="profileImageContainer"
-                onClick={() => {
-                  // Profile Image Click
-                  if (this.state.profilePhotoPopUp === false) {
-                    this.setState({ profilePhotoPopUp: true });
-                    this.editProfile.focus();
-                  } else {
-                    this.setState({ profilePhotoPopUp: false });
-                  }
-                }}
-              >
-                <img
-                  className="profileImage"
-                  src={require("../assets/images/profileImage.jpeg").default}
-                  alt="Avatar"
-                ></img>
-                <i className="fas fa-camera fa-camera-profilePhoto"></i>
-              </button>
-            </div>
-            <button
-              type="button"
-              className="btn btn-outline-secondary buttonRightProfile0"
-              onClick={() => {
-                this.props.history.push(
-                  "/profile/usertest/settings/editprofile"
-                );
-              }}
-            >
-              <i className="fas fa-user-cog"></i> Edit profile
-            </button>
-            <button
-              type="button"
-              className="btn btn-outline-secondary buttonRightRightProfile0"
-              onClick={() => {
-                this.props.history.push("/profile/usertest/settings/privacy");
-              }}
-            >
-              <i className="fas fa-cog"></i>
-            </button>
-            <h1 className="profileName">Name Lastname</h1>
-            <h3 className="profileUserName">@username1</h3>
-
-            <small className="profileBiography">asdfasdfasdf</small>
-            <div className="containerFollowers">
-              <h5 className="followersText">
-                <b>10</b> reviews
-              </h5>
-              <h5
-                className="followersText followersProfile"
-                onClick={() => {
-                  this.setState({ layer: "followers" });
-                  this.props.history.push("/profile/usertest/followers");
-                }}
-              >
-                <b>140</b> followers
-              </h5>
-              <h5
-                className="followersText followersProfile"
-                onClick={() => {
-                  this.setState({ layer: "following" });
-                  this.props.history.push("/profile/usertest/following");
-                }}
-              >
-                <b>200</b> following
-              </h5>
-            </div>
-          </div>
-
-          <div className="rightProfile1 divProfile">
-            <div
-              onClick={() => {
-                this.setState({ layer: "uploadReview" });
-              }}
-              className="wrapperAdd"
-            >
-              <i className="fas fa-arrow-circle-up fa-arrow-circle-up-RP1"></i>
-              <input
-                placeholder="Where have you been?"
-                className="inputSearch profile"
-              ></input>
-            </div>
-            <div className="hrUpload"></div>
-            <div className="buttonUploadWrapper">
-              <button className="buttonProfile buttonUpload">
-                <h5 className="textButtonProfile textButtonRP1">
-                  <i className="fas fa-camera fa-camera-buttonUpload"></i> Add
-                  photo
-                </h5>
-              </button>
-              <button className="buttonProfile buttonUpload">
-                <h5 className="textButtonProfile textButtonRP1">
-                  <i className="fas fa-map-marker-alt fa-map-marker-alt-buttonUpload"></i>
-                  Store
-                </h5>
-              </button>
-              <button className="buttonProfile buttonUpload">
-                <h5 className="textButtonProfile textButtonRP1">
-                  <i className="far fa-square"></i> Rating
-                </h5>
-              </button>
-              <button className="buttonProfile buttonUpload">
-                <h5 className="textButtonProfile textButtonRP1">
-                  <i className="fas fa-check fa-plus-circle-buttonUpload"></i>
-                  Post
-                </h5>
-              </button>
-            </div>
-          </div>
-
-          <ProfileSlider
-            onOpenBigPost={(datos = null) => {
-              this.props.history.push(`/profile/usertest/bigpost/${datos.id}`);
-              this.setState({ layer: "bigPost" });
-            }}
-          ></ProfileSlider>
-        </div>
-      </div>
+  let layer;
+  if (
+    // if the url finishes with profile/usertest/ or profile/usertest
+    /profile\/usertest(|\/)$/.test(window.location.href) &&
+    // if there are not div layers over the profile section
+    state.layer === null
+  ) {
+    document.body.style.overflow = "unset";
+    layer = null;
+  } else if (state.layer === "viewPhoto") {
+    // Block scroll Feature
+    document.body.style.overflow = "hidden";
+    layer = <LayerViewPhoto closeLayer={handleCloseLayer}></LayerViewPhoto>;
+  } else if (state.layer === "uploadReview") {
+    // Block scroll Feature
+    document.body.style.overflow = "hidden";
+    layer = (
+      <UploadReview
+        onClickBackground={handleCloseOnClick}
+        onBlur={handleCloseLayer}
+      ></UploadReview>
+    );
+  } else if (/profile\/usertest\/followers(|\/)$/.test(window.location.href)) {
+    // Block scroll Feature
+    document.body.style.overflow = "hidden";
+    layer = (
+      <LayerFollowers
+        setStateProfile={handleCloseLayer}
+        closeLayer={handleCloseOnClick}
+        type="followers"
+        thisPropsHistory={props.history}
+        onBlur={handleCloseLayer}
+      ></LayerFollowers>
+    );
+  } else if (/profile\/usertest\/following(|\/)$/.test(window.location.href)) {
+    // Block scroll Feature
+    document.body.style.overflow = "hidden";
+    layer = (
+      <LayerFollowers
+        setStateProfile={handleCloseLayer}
+        closeLayer={handleCloseOnClick}
+        type="following"
+        thisPropsHistory={props.history}
+      ></LayerFollowers>
+    );
+  } else if (
+    /profile\/usertest\/bigpost\/[0-9]+(|\/)$/.test(window.location.href)
+  ) {
+    // Block scroll Feature
+    document.body.style.overflow = "hidden";
+    layer = (
+      <BigPost
+        onClose={handleCloseLayer}
+        onClickBackground={handleCloseOnClick}
+        thisPropsHistoryPush={props.history.push}
+      ></BigPost>
     );
   }
-}
+
+  return (
+    <div className="profile">
+      {layer}
+      <div
+        ref={editProfile}
+        tabIndex="-1"
+        className={
+          "layer-editPhoto" + (state.profilePhotoPopUp ? " onScreen" : "")
+        }
+        onBlur={handleBlurPhotoProfile}
+      >
+        <button
+          onClick={() => setState({ ...state, layer: "viewPhoto" })}
+          className="layer-editPhotoText0"
+        >
+          <div className="layer-editPhoto0-arrow"></div>View profile photo
+        </button>
+        <button
+          onClick={() => {
+            console.log("asd");
+          }}
+          className="layer-editPhotoText1"
+        >
+          <label htmlFor="file-profileImage" className="layer-editPhotoText1">
+            Upload profile photo
+          </label>
+        </button>
+        <input id="file-profileImage" type="file" />
+        <button
+          onClick={() => {
+            console.log("asd");
+            // setState({ layer: "viewPhoto" });
+          }}
+          className="layer-editPhotoText2"
+        >
+          Delete profile photo
+        </button>
+      </div>
+      <div className="leftProfile divProfile"></div>
+      <div className="rightProfile">
+        <div className="rightProfile0 divProfile">
+          <h5 className="profileType">Reviewer</h5>
+          <div className="profileImageContainerContainer">
+            <button
+              className="profileImageContainer"
+              onClick={() => {
+                // Profile Image Click
+                if (state.profilePhotoPopUp === false) {
+                  setState({ ...state, profilePhotoPopUp: true });
+                  editProfile.focus();
+                } else {
+                  setState({ ...state, profilePhotoPopUp: false });
+                }
+              }}
+            >
+              <img
+                className="profileImage"
+                src={require("../assets/images/profileImage.jpeg").default}
+                alt="Avatar"
+              ></img>
+              <i className="fas fa-camera fa-camera-profilePhoto"></i>
+            </button>
+          </div>
+          <button
+            type="button"
+            className="btn btn-outline-secondary buttonRightProfile0"
+            onClick={() => {
+              props.history.push("/profile/usertest/settings/editprofile");
+            }}
+          >
+            <i className="fas fa-user-cog"></i> Edit profile
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-secondary buttonRightRightProfile0"
+            onClick={() => {
+              props.history.push("/profile/usertest/settings/privacy");
+            }}
+          >
+            <i className="fas fa-cog"></i>
+          </button>
+          <h1 className="profileName">Name Lastname</h1>
+          <h3 className="profileUserName">@username1</h3>
+
+          <small className="profileBiography">asdfasdfasdf</small>
+          <div className="containerFollowers">
+            <h5 className="followersText">
+              <b>10</b> reviews
+            </h5>
+            <h5
+              className="followersText followersProfile"
+              onClick={() => {
+                setState({ ...state, layer: "followers" });
+                props.history.push("/profile/usertest/followers");
+              }}
+            >
+              <b>140</b> followers
+            </h5>
+            <h5
+              className="followersText followersProfile"
+              onClick={() => {
+                setState({ ...state, layer: "following" });
+                props.history.push("/profile/usertest/following");
+              }}
+            >
+              <b>200</b> following
+            </h5>
+          </div>
+        </div>
+
+        <div className="rightProfile1 divProfile">
+          <div
+            onClick={() => {
+              setState({ ...state, layer: "uploadReview" });
+            }}
+            className="wrapperAdd"
+          >
+            <i className="fas fa-arrow-circle-up fa-arrow-circle-up-RP1"></i>
+            <input
+              placeholder="Where have you been?"
+              className="inputSearch profile"
+            ></input>
+          </div>
+          <div className="hrUpload"></div>
+          <div className="buttonUploadWrapper">
+            <button className="buttonProfile buttonUpload">
+              <h5 className="textButtonProfile textButtonRP1">
+                <i className="fas fa-camera fa-camera-buttonUpload"></i> Add
+                photo
+              </h5>
+            </button>
+            <button className="buttonProfile buttonUpload">
+              <h5 className="textButtonProfile textButtonRP1">
+                <i className="fas fa-map-marker-alt fa-map-marker-alt-buttonUpload"></i>
+                Store
+              </h5>
+            </button>
+            <button className="buttonProfile buttonUpload">
+              <h5 className="textButtonProfile textButtonRP1">
+                <i className="far fa-square"></i> Rating
+              </h5>
+            </button>
+            <button className="buttonProfile buttonUpload">
+              <h5 className="textButtonProfile textButtonRP1">
+                <i className="fas fa-check fa-plus-circle-buttonUpload"></i>
+                Post
+              </h5>
+            </button>
+          </div>
+        </div>
+
+        <ProfileSlider
+          onOpenBigPost={(datos = null) => {
+            props.history.push(`/profile/usertest/bigpost/${datos.id}`);
+            setState({ ...state, layer: "bigPost" });
+          }}
+        ></ProfileSlider>
+      </div>
+    </div>
+  );
+};
 
 // Function to convert nominal punctuation to sign punctuation
 
