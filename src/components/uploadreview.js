@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router-dom";
 
 const UploadReview = (props) => {
   const [state, setState] = useState({
@@ -23,6 +24,7 @@ const UploadReview = (props) => {
   const handleHiddenChange = (event) => {
     const images = [...Array(event.target.files.length).keys()];
     setState({
+      ...state,
       image: images.map((number) =>
         URL.createObjectURL(event.target.files[number])
       ),
@@ -31,7 +33,7 @@ const UploadReview = (props) => {
   };
 
   useEffect(() => {
-    textArea.focus();
+    textArea.current.focus();
   });
   return (
     <div onClick={props.onClickBackground} className="layer-profileBackground">
@@ -73,18 +75,20 @@ const UploadReview = (props) => {
         <div className="uploadReviewMiddle">
           <div
             onMouseLeave={() => {
-              setState({ priceHover: state.price });
+              setState({ ...state, priceHover: state.price });
             }}
             className="uploadReviewMiddlePunctuationC"
           >
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   priceHover: [true, false, false, false, false],
                 });
               }}
               onClick={() => {
                 setState({
+                  ...state,
                   price: [true, false, false, false, false],
                 });
               }}
@@ -95,11 +99,13 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   priceHover: [true, true, false, false, false],
                 });
               }}
               onClick={() => {
                 setState({
+                  ...state,
                   price: [true, true, false, false, false],
                 });
               }}
@@ -110,13 +116,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   priceHover: [true, true, true, false, false],
                 });
               }}
               onClick={() => {
-                setState({
-                  price: [true, true, true, false, false],
-                });
+                setState({ ...state, price: [true, true, true, false, false] });
               }}
               className={
                 "UploadReviewSquares" + (state.priceHover[2] ? " on" : "")
@@ -125,13 +130,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   priceHover: [true, true, true, true, false],
                 });
               }}
               onClick={() => {
-                setState({
-                  price: [true, true, true, true, false],
-                });
+                setState({ ...state, price: [true, true, true, true, false] });
               }}
               className={
                 "UploadReviewSquares" + (state.priceHover[3] ? " on" : "")
@@ -140,13 +144,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   priceHover: [true, true, true, true, true],
                 });
               }}
               onClick={() => {
-                setState({
-                  price: [true, true, true, true, true],
-                });
+                setState({ ...state, price: [true, true, true, true, true] });
               }}
               className={
                 "UploadReviewSquares" + (state.priceHover[4] ? " on" : "")
@@ -170,18 +173,20 @@ const UploadReview = (props) => {
         <div className="uploadReviewMiddle">
           <div
             onMouseLeave={() => {
-              setState({ timeHover: state.time });
+              setState({ ...state, timeHover: state.time });
             }}
             className="uploadReviewMiddlePunctuationC"
           >
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   timeHover: [true, false, false, false, false],
                 });
               }}
               onClick={() => {
                 setState({
+                  ...state,
                   time: [true, false, false, false, false],
                 });
               }}
@@ -192,13 +197,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   timeHover: [true, true, false, false, false],
                 });
               }}
               onClick={() => {
-                setState({
-                  time: [true, true, false, false, false],
-                });
+                setState({ ...state, time: [true, true, false, false, false] });
               }}
               className={
                 "UploadReviewSquares" + (state.timeHover[1] ? " on" : "")
@@ -207,13 +211,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   timeHover: [true, true, true, false, false],
                 });
               }}
               onClick={() => {
-                setState({
-                  time: [true, true, true, false, false],
-                });
+                setState({ ...state, time: [true, true, true, false, false] });
               }}
               className={
                 "UploadReviewSquares" + (state.timeHover[2] ? " on" : "")
@@ -222,13 +225,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   timeHover: [true, true, true, true, false],
                 });
               }}
               onClick={() => {
-                setState({
-                  time: [true, true, true, true, false],
-                });
+                setState({ ...state, time: [true, true, true, true, false] });
               }}
               className={
                 "UploadReviewSquares" + (state.timeHover[3] ? " on" : "")
@@ -237,13 +239,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   timeHover: [true, true, true, true, true],
                 });
               }}
               onClick={() => {
-                setState({
-                  time: [true, true, true, true, true],
-                });
+                setState({ ...state, time: [true, true, true, true, true] });
               }}
               className={
                 "UploadReviewSquares" + (state.timeHover[4] ? " on" : "")
@@ -266,18 +267,20 @@ const UploadReview = (props) => {
         <div className="uploadReviewMiddle">
           <div
             onMouseLeave={() => {
-              setState({ ratingHover: state.rating });
+              setState({ ...state, ratingHover: state.rating });
             }}
             className="uploadReviewMiddlePunctuationC"
           >
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   ratingHover: [true, false, false, false, false],
                 });
               }}
               onClick={() => {
                 setState({
+                  ...state,
                   rating: [true, false, false, false, false],
                 });
               }}
@@ -288,11 +291,13 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   ratingHover: [true, true, false, false, false],
                 });
               }}
               onClick={() => {
                 setState({
+                  ...state,
                   rating: [true, true, false, false, false],
                 });
               }}
@@ -303,11 +308,13 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   ratingHover: [true, true, true, false, false],
                 });
               }}
               onClick={() => {
                 setState({
+                  ...state,
                   rating: [true, true, true, false, false],
                 });
               }}
@@ -318,13 +325,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   ratingHover: [true, true, true, true, false],
                 });
               }}
               onClick={() => {
-                setState({
-                  rating: [true, true, true, true, false],
-                });
+                setState({ ...state, rating: [true, true, true, true, false] });
               }}
               className={
                 "UploadReviewSquares" + (state.ratingHover[3] ? " on" : "")
@@ -333,13 +339,12 @@ const UploadReview = (props) => {
             <div
               onMouseEnter={() => {
                 setState({
+                  ...state,
                   ratingHover: [true, true, true, true, true],
                 });
               }}
               onClick={() => {
-                setState({
-                  rating: [true, true, true, true, true],
-                });
+                setState({ ...state, rating: [true, true, true, true, true] });
               }}
               className={
                 "UploadReviewSquares" + (state.ratingHover[4] ? " on" : "")
@@ -411,6 +416,7 @@ const UploadReview = (props) => {
             className="buttonProfile buttonUpload"
             onClick={() =>
               setState({
+                ...state,
                 rating: [true, true, true, true, true],
                 ratingHover: [true, true, true, true, true],
                 price: [true, true, true, true, true],
@@ -441,4 +447,4 @@ const UploadReview = (props) => {
   );
 };
 
-export default UploadReview;
+export default withRouter(UploadReview);
